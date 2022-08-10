@@ -33,7 +33,7 @@ public class IssueEntity {
 
     @ManyToOne
     @JoinColumn(name="plant_id", nullable=false)
-    @JsonBackReference
+    @JsonBackReference ("plant-issue")
     private PlantEntity plantEntity;
 
     public IssueEntity(PlantEntity plantEntity, String description, byte[] picture, LocalDate date) {

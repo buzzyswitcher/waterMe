@@ -34,15 +34,15 @@ private  Long id;
     private String wikiLink;
 
     @OneToMany(mappedBy= "plantEntity")
-    @JsonManagedReference
+    @JsonManagedReference ("plant-irrigation")
     private Set<IrrigationEntity> irrigationEntities;
 
     @OneToMany(mappedBy= "plantEntity")
-    @JsonManagedReference
+    @JsonManagedReference("plant-issue")
     private Set<IssueEntity> issueEntities;
 
     @OneToMany(mappedBy="plantEntity")
-    @JsonManagedReference
+    @JsonManagedReference("plant-plant_sponsor")
     private Set<PlantSponsorEntity> plantSponsorEntities;
 
 

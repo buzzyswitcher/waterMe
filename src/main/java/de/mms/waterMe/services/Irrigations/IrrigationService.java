@@ -1,8 +1,13 @@
 package de.mms.waterMe.services.Irrigations;
 
+import de.mms.waterMe.api.Irrigations.IrrigationDto;
 import de.mms.waterMe.api.Irrigations.IrrigationModelAssembler;
 import de.mms.waterMe.database.entity.IrrigationEntity;
+import de.mms.waterMe.database.entity.PlantEntity;
+import de.mms.waterMe.database.entity.UserEntity;
 import de.mms.waterMe.database.repository.IrrigationRepository;
+import de.mms.waterMe.services.Plants.PlantService;
+import de.mms.waterMe.services.Users.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Service;
@@ -18,11 +23,25 @@ public class IrrigationService {
 
     private final IrrigationRepository repository;
 
+    @Autowired
+    private PlantService plantService;
+
+    @Autowired
+    private UserService userService;
+
+
     public IrrigationService(IrrigationRepository repository) {
         this.repository = repository;
     }
 
-    public IrrigationEntity newIrrigation(IrrigationEntity irrigationEntity) {
+    public IrrigationEntity newIrrigation(IrrigationDto irrigationDto) {
+
+        PlantEntity plantReference = plantService.onePlant(irrigationDto.getPlant_id());
+        UserEntity userReference = userService.oneUser(irrigationDto.getUser_id());
+
+        IrrigationEntity irrigationEntity = new IrrigationEntity( irrigationDto.getAmount(), irrigationDto.getDate(), plantReference, userReference);
+
+
         return repository.save(irrigationEntity);
     }
 

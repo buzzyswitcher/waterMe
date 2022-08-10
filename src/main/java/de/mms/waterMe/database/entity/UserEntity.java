@@ -47,7 +47,7 @@ public class UserEntity {
 
 
     @OneToMany(mappedBy= "userEntity")
-    @JsonManagedReference
+    @JsonManagedReference ("users-irrigation")
     private Set<IrrigationEntity> irrigationEntities;
 
 //

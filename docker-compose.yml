@@ -7,6 +7,6 @@ services:
     environment:
       POSTGRES_USER: waterMe
       POSTGRES_PASSWORD: waterMe
-      POSTGRES_DB: waterMeDB
+      POSTGRES_DB: watermedb
     ports:
       - 5432:5432

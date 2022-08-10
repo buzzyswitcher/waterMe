@@ -32,13 +32,13 @@ public class IrrigationEntity {
 
     @ManyToOne
     @JoinColumn(name="plant_id", nullable=false)
-    //@JsonBackReference
+    @JsonBackReference ("plant-irrigation")
     private PlantEntity plantEntity;
 
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
-    @JsonBackReference
+    @JsonBackReference ("users-irrigation")
     private UserEntity userEntity;
 
     public IrrigationEntity(int amount, LocalDate date, PlantEntity plantEntity, UserEntity userEntity) {

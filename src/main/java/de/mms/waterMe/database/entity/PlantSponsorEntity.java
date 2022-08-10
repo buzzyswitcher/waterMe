@@ -27,12 +27,12 @@ public class PlantSponsorEntity {
 
     @ManyToOne
     @JoinColumn(name="plant_id", nullable=false)
-   @JsonBackReference
+   @JsonBackReference ("plant-plant_sponsor")
     private PlantEntity plantEntity;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
-    @JsonBackReference
+    @JsonBackReference ("users-plant_sponsor")
     private UserEntity userEntity;
 
     public PlantSponsorEntity(PlantEntity plantEntity, UserEntity userEntity ) {

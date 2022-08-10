@@ -2,7 +2,7 @@
 
 -- DROP DATABASE IF EXISTS "waterMeDB";
 
-CREATE DATABASE "waterMeDB"
+CREATE DATABASE "watermedb"
     WITH
     OWNER = "waterMe"
     ENCODING = 'UTF8'

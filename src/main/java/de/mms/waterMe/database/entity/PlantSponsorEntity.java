@@ -16,14 +16,11 @@ import javax.persistence.*;
 @Table(name = "plant_sponsor")
 
 public class PlantSponsorEntity {
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "plant_sponsor_generator")
+    @SequenceGenerator(name="plant_sponsor_generator", sequenceName = "plant_sponsor_seq", allocationSize=1)
     private Long id;
-//    @Column(name = "plant_id",insertable = false,updatable = false)
-//    private Long plant_id;
-//    @Column(name = "user_id",insertable = false,updatable = false)
-//    private Long user_id;
 
     @ManyToOne
     @JoinColumn(name="plant_id", nullable=false)

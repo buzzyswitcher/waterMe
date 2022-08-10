@@ -39,7 +39,14 @@ public class IrrigationService {
         PlantEntity plantReference = plantService.onePlant(irrigationDto.getPlant_id());
         UserEntity userReference = userService.oneUser(irrigationDto.getUser_id());
 
-        IrrigationEntity irrigationEntity = new IrrigationEntity( irrigationDto.getAmount(), irrigationDto.getDate(), plantReference, userReference);
+        // не используйте здесь создание объекта через конструктор, лучше присваивайте значения полям через сеттеры.
+        // Когда в классе немного полей (скажем до 4), еще можно использовать конструктор
+        // Если полей больше, то можно запутаться что за чем следует в конструкторе.
+        IrrigationEntity irrigationEntity = new IrrigationEntity();
+        irrigationEntity.setPlantEntity(plantReference);
+        irrigationEntity.setUserEntity(userReference);
+        irrigationEntity.setAmount(irrigationDto.getAmount());
+        irrigationEntity.setDate(irrigationDto.getDate());
 
 
         return repository.save(irrigationEntity);

@@ -1,3 +1,4 @@
+/*
 package de.mms.waterMe.api;
 
 import de.mms.waterMe.api.Plants.PlantController;
@@ -108,3 +109,4 @@ public class PlantEntityControllerTest {
         return plantEntity;
     }
 }
+*/

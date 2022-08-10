@@ -6,10 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class WaterMeApplicationTests {
 
-    @Test
-    void contextLoad(){
-
-    }
+//    @Test
+//    void contextLoad(){
+//
+//    }
 }
 
 

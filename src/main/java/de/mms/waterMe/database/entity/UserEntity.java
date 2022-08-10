@@ -20,10 +20,10 @@ import java.util.Set;
 public class UserEntity {
 
   //  @ToString.Include
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+      @Id
+      @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "user_generator")
+      @SequenceGenerator(name="user_generator", sequenceName = "user_seq", allocationSize=1)
+      private Long id;
 
 //    @ToString.Include
 //    @Column(name = "email")

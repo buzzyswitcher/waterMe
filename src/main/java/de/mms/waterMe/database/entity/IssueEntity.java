@@ -18,8 +18,8 @@ import java.time.LocalDate;
 @Table(name = "issue")
 public class IssueEntity {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "issue_generator")
+    @SequenceGenerator(name="issue_generator", sequenceName = "issue_seq", allocationSize=1)
     private Long id;
 
     @Column(name = "plant_id",insertable = false,updatable = false)

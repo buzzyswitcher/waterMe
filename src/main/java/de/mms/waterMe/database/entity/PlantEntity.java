@@ -16,10 +16,12 @@ import java.util.Set;
 @Entity
 @Table(name = "plant")
 public class PlantEntity {
-@Id
-@GeneratedValue (strategy = GenerationType.IDENTITY)
-@Column(name = "id")
-private  Long id;
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "plant_generator")
+    @SequenceGenerator(name="plant_generator", sequenceName = "plant_seq", allocationSize=1)
+    private  Long id;
+
     @Column(name = "icon")
     private String icon;
     @Column(name = "soil_changed")
